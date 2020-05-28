@@ -19,9 +19,9 @@ The C program bind-shellcode-mapped loads an array of arm-64 bind shell code and
 
 A bind shell is used to create a listening port on a target machine, that can be later accessed via the network and interact with a system shell. This is a common technique for creating backdoors and maintaining persistence on a target machine.
 
-This will demonstrate how to create a bind shell then move further to create the bind shell and map it into memory.  This program will accept incoming connection a execute a shell to the remote connection.
+This will demonstrate how to create a bind shell and map it into memory.  This program will accept incoming connection a execute a shell to the remote connection.
 
-Now the shell code assembler source code has been modified to directly perform the system call by substituting the execve with the linux system call number.  Additionally, the null bytes have been removed from the code.  This will allow the shell code to be used to exploit memory corruption vulnerabilities.
+Now the shell code assembler source code is modified to directly perform the system calls with the linux system call number.  Additionally, the null bytes have been removed from the code.  This will allow the shell code to be used to exploit memory corruption vulnerabilities.
 
 This program can be ran as a shell or root user.
 
