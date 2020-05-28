@@ -1,6 +1,8 @@
 # arm64_bind_shellcode
 C program to map arm64 bind shell code into memory and execute code
 
+# This will only work on target arm64 device running Linux. Fixed stack management issues in original assembler code.
+
 Source code for mapping bind shell code into memory and executing the mapped shell code.
 The arm64 code was tested on a Raspberry Pi running Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-1062-raspi2 aarch64).
 
@@ -22,7 +24,7 @@ Now the shell code assembler source code has been modified to directly perform t
 
 This program can be ran as a shell or root user.
 
-In the first terminal start the bind shell code mapped program
+In the first terminal on the arm64 trget start the bind shell code mapped program
 
     On the Target run the bind-shellcode-mapped program
     Start the server as root on the target
@@ -40,7 +42,7 @@ In the first terminal start the bind shell code mapped program
     --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=15080, si_uid=0, si_status=0, si_utime=0, si_stime=0} ---
     +++ exited with 0 +++
 
-In another terminal use netstat to identify the active ports on the target.   The program bind-shell can be seen running on port 4444.  Next start netcat to connect to port 4444.  If the connection succeeds user interaction will reveal a root shell (without prompt) as shown below.
+In another terminal on the arm64 target use netstat to identify the active ports on the target.   The program bind-shell can be seen running on port 4444.  Next start netcat to connect to port 4444.  If the connection succeeds user interaction will reveal a root shell (without prompt) as shown below.
        
     $ netstat -tlpn
     (Not all processes could be identified, non-owned process info
